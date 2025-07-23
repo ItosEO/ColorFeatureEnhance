@@ -110,7 +110,23 @@ class DisclaimerManager private constructor(context: Context) {
         """.trimIndent()
     }
     
-
+    /**
+     * 重置免责声明状态（用于测试）
+     */
+    fun resetDisclaimerStatus() {
+        prefs.edit(commit = true) {
+            remove(KEY_DISCLAIMER_ACCEPTED)
+            remove(KEY_ACCEPTANCE_TIME)
+        }
+        CLog.i(TAG, "免责声明状态已重置")
+    }
+    
+    /**
+     * 获取用户同意时间
+     */
+    fun getAcceptanceTime(): Long {
+        return prefs.getLong(KEY_ACCEPTANCE_TIME, 0L)
+    }
     
     companion object {
         private const val TAG = "DisclaimerManager"

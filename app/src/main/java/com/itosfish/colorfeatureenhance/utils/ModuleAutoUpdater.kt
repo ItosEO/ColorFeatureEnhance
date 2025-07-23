@@ -1,7 +1,6 @@
 package com.itosfish.colorfeatureenhance.utils
 
 import android.widget.Toast
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.itosfish.colorfeatureenhance.MainActivity.Companion.app
 import com.itosfish.colorfeatureenhance.R
 import kotlinx.coroutines.Dispatchers

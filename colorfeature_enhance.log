@@ -1,0 +1,181 @@
+[ColorFeatureEnhance] 1970-03-24 18:38:12 === 配置管理模块启动（post-fs-data阶段）===
+[ColorFeatureEnhance-DEBUG] 1970-03-24 18:38:12 MODDIR: /data/adb/modules/ColorOSFeaturesEnhance
+[ColorFeatureEnhance-DEBUG] 1970-03-24 18:38:12 SYSTEM_CONFIG_DIR: /my_product/etc/extension
+[ColorFeatureEnhance-DEBUG] 1970-03-24 18:38:12 MODULE_CONFIG_DIR: /data/adb/cos_feat_e/my_product/etc/extension
+[ColorFeatureEnhance-DEBUG] 1970-03-24 18:38:12 MODULE_ANYMOUNT_DIR: /data/adb/cos_feat_e/anymount/my_product/etc/extension
+[ColorFeatureEnhance-DEBUG] 1970-03-24 18:38:12 MODULE_TEMP_DIR: /data/adb/cos_feat_e/temp_configs
+[ColorFeatureEnhance-DEBUG] 1970-03-24 18:38:12 开始复制系统配置到临时目录
+[ColorFeatureEnhance-DEBUG] 1970-03-24 18:38:12 源文件存在: /my_product/etc/extension/com.oplus.app-features.xml
+[ColorFeatureEnhance-DEBUG] 1970-03-24 18:38:12 源文件大小: 2623
+[ColorFeatureEnhance-DEBUG] 1970-03-24 18:38:12 cp命令返回值: 0
+[ColorFeatureEnhance] 1970-03-24 18:38:12 复制系统配置到临时目录: com.oplus.app-features.xml
+[ColorFeatureEnhance-DEBUG] 1970-03-24 18:38:12 目标文件大小: 2623
+[ColorFeatureEnhance-DEBUG] 1970-03-24 18:38:12 源文件存在: /my_product/etc/extension/com.oplus.oplus-feature.xml
+[ColorFeatureEnhance-DEBUG] 1970-03-24 18:38:12 源文件大小: 11492
+[ColorFeatureEnhance-DEBUG] 1970-03-24 18:38:12 cp命令返回值: 0
+[ColorFeatureEnhance] 1970-03-24 18:38:12 复制系统配置到临时目录: com.oplus.oplus-feature.xml
+[ColorFeatureEnhance-DEBUG] 1970-03-24 18:38:12 目标文件大小: 11492
+[ColorFeatureEnhance-DEBUG] 1970-03-24 18:38:12 临时目录最终状态:
+[ColorFeatureEnhance-DEBUG] 1970-03-24 18:38:12   total 27
+[ColorFeatureEnhance-DEBUG] 1970-03-24 18:38:12   drwxrwxrwx    2 root     root          3452 Mar 24 18:38 .
+[ColorFeatureEnhance-DEBUG] 1970-03-24 18:38:12   drwxr-xr-x    5 root     root          3452 Mar 24 18:38 ..
+[ColorFeatureEnhance-DEBUG] 1970-03-24 18:38:12   -rw-r--r--    1 root     root          2623 Mar 24 18:38 com.oplus.app-features.xml
+[ColorFeatureEnhance-DEBUG] 1970-03-24 18:38:12   -rw-r--r--    1 root     root         11492 Mar 24 18:38 com.oplus.oplus-feature.xml
+[ColorFeatureEnhance-DEBUG] 1970-03-24 18:38:12   -rw-rw-rw-    1 root     root            20 Mar 24 18:38 last_copy.txt
+[ColorFeatureEnhance] 1970-03-24 18:38:12 系统配置复制到临时目录完成，成功复制 2 个文件
+[ColorFeatureEnhance] 1970-03-24 18:38:12 开始挂载配置文件
+[ColorFeatureEnhance] 1970-03-24 18:38:12 === post-fs-data阶段完成 ===
+[ColorFeatureEnhance] 2025-07-23 18:17:49 === ColorFeatureEnhance Service v2.1 启动 ===
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:17:49 模块目录: /data/adb/modules/ColorOSFeaturesEnhance
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:17:49 临时配置源: /data/adb/cos_feat_e/temp_configs
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:17:49 应用配置目录: /data/media/0/Android/data/com.itosfish.colorfeatureenhance/files/configs
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:17:49 功能: 临时目录 -> 应用存储
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:17:49 === 主流程开始 ===
+[ColorFeatureEnhance] 2025-07-23 18:17:49 等待系统启动完成...
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:17:49 系统基本启动完成
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:17:49 用户已解锁
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:17:49 等待文件系统稳定...
+[ColorFeatureEnhance] 2025-07-23 18:17:54 系统准备就绪
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:17:54 === 环境检查 ===
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:17:54 当前用户: uid=0(root) gid=0(root) groups=0(root) context=u:r:su:s0
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:17:54 SELinux状态: Enforcing
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:17:54 /data/media/0 权限: drwxrws--- 30 media_rw media_rw 8192 2025-07-23 10:30 /data/media/0
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:17:54 /data/media/0/Android 权限: drwxrws--x 8 media_rw media_rw 3452 2025-07-08 09:42 /data/media/0/Android
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:17:54 /data/media/0/Android/data 权限: drwxrws--x 654 media_rw ext_data_rw 57344 2025-07-23 09:58 /data/media/0/Android/data
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:17:54 临时配置源检查:
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:17:54   /data/adb/cos_feat_e/temp_configs 存在: 是
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:17:54   com.oplus.app-features.xml 存在: 是
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:17:54   com.oplus.oplus-feature.xml 存在: 是
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:17:54   last_copy.txt 存在: 是
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:17:54 临时目录内容:
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:17:54     total 30
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:17:54     drwxrwxrwx 2 root root  3452 2025-07-23 18:17 .
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:17:54     drwxr-xr-x 5 root root  3452 1970-03-24 18:38 ..
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:17:54     -rw-r--r-- 1 root root  2623 1970-03-24 18:38 com.oplus.app-features.xml
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:17:54     -rw-r--r-- 1 root root 11492 1970-03-24 18:38 com.oplus.oplus-feature.xml
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:17:54     -rw-rw-rw- 1 root root    20 1970-03-24 18:38 last_copy.txt
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:17:54     -rw-r--r-- 1 root root    56 2025-07-23 18:17 service_status.txt
+[ColorFeatureEnhance] 2025-07-23 18:17:54 执行优化的目录初始化...
+[ColorFeatureEnhance] 2025-07-23 18:17:54 优化的目录初始化：重建system_baseline，调整其他目录权限...
+[ColorFeatureEnhance] 2025-07-23 18:17:54 强制重建 system_baseline 目录...
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:17:54 删除现有 system_baseline 目录: /data/media/0/Android/data/com.itosfish.colorfeatureenhance/files/configs/system_baseline
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:17:54 强制重新创建目录: /data/media/0/Android/data/com.itosfish.colorfeatureenhance/files/configs/system_baseline (权限: 777)
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:17:54 目录重新创建成功: /data/media/0/Android/data/com.itosfish.colorfeatureenhance/files/configs/system_baseline
+[ColorFeatureEnhance] 2025-07-23 18:17:54 system_baseline 目录重建完成 (777权限)
+[ColorFeatureEnhance] 2025-07-23 18:17:54 检查并调整 user_patches 目录权限...
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:17:54 保留现有 user_patches 目录，统一设置777权限
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:17:54 user_patches 目录权限调整完成 (777权限)
+[ColorFeatureEnhance] 2025-07-23 18:17:54 检查并调整 merged_output 目录权限...
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:17:54 保留现有 merged_output 目录，统一设置777权限
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:17:55 merged_output 目录权限调整完成 (777权限)
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:17:55 保留现有临时目录，设置777权限: /data/adb/cos_feat_e/temp_configs
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:17:55 临时目录现有内容:
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:17:55   total 30
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:17:55   drwxrwxrwx 2 root root  3452 2025-07-23 18:17 .
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:17:55   drwxr-xr-x 5 root root  3452 1970-03-24 18:38 ..
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:17:55   -rwxrwxrwx 1 root root  2623 1970-03-24 18:38 com.oplus.app-features.xml
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:17:55   -rwxrwxrwx 1 root root 11492 1970-03-24 18:38 com.oplus.oplus-feature.xml
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:17:55   -rwxrwxrwx 1 root root    20 1970-03-24 18:38 last_copy.txt
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:17:55   -rwxrwxrwx 1 root root    56 2025-07-23 18:17 service_status.txt
+[ColorFeatureEnhance] 2025-07-23 18:17:55 优化的目录初始化完成：system_baseline已重建，所有目录统一使用777权限
+[ColorFeatureEnhance] 2025-07-23 18:17:55 更新系统基线配置...
+[ColorFeatureEnhance] 2025-07-23 18:17:55 从临时目录复制系统配置到system_baseline（仅更新系统基线）...
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:17:55 发现临时配置: /data/adb/cos_feat_e/temp_configs/com.oplus.app-features.xml
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:17:55 源文件大小: 2623
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:17:55 复制文件: /data/adb/cos_feat_e/temp_configs/com.oplus.app-features.xml -> /data/media/0/Android/data/com.itosfish.colorfeatureenhance/files/configs/system_baseline/com.oplus.app-features.xml (777权限)
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:17:55 文件复制成功: com.oplus.app-features.xml (777权限)
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:17:55 目标文件大小: 2623
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:17:55 发现临时配置: /data/adb/cos_feat_e/temp_configs/com.oplus.oplus-feature.xml
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:17:55 源文件大小: 11492
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:17:55 复制文件: /data/adb/cos_feat_e/temp_configs/com.oplus.oplus-feature.xml -> /data/media/0/Android/data/com.itosfish.colorfeatureenhance/files/configs/system_baseline/com.oplus.oplus-feature.xml (777权限)
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:17:55 文件复制成功: com.oplus.oplus-feature.xml (777权限)
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:17:55 目标文件大小: 11492
+[ColorFeatureEnhance] 2025-07-23 18:17:55 系统基线配置更新完成: 2/2 成功
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:17:55 复制时间戳文件: /data/adb/cos_feat_e/temp_configs/last_copy.txt -> /data/media/0/Android/data/com.itosfish.colorfeatureenhance/files/configs/system_baseline/last_copy.txt
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:17:55 复制文件: /data/adb/cos_feat_e/temp_configs/last_copy.txt -> /data/media/0/Android/data/com.itosfish.colorfeatureenhance/files/configs/system_baseline/last_copy.txt (777权限)
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:17:55 文件复制成功: last_copy.txt (777权限)
+[ColorFeatureEnhance] 2025-07-23 18:17:55 执行简化权限设置（777权限）...
+[ColorFeatureEnhance] 2025-07-23 18:17:55 开始简化权限设置（统一777权限）
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:17:55 配置目录: /data/media/0/Android/data/com.itosfish.colorfeatureenhance/files/configs
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:17:55 设置前权限: 2770
+[ColorFeatureEnhance] 2025-07-23 18:17:55 设置配置目录及所有子目录和文件为777权限...
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:17:55 权限设置结果: 根目录=0, 子目录=0, 文件=0
+[ColorFeatureEnhance] 2025-07-23 18:17:55 简化权限设置完成: 最终权限=777
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:17:55 system_baseline 目录权限: 777
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:17:55 user_patches 目录权限: 777
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:17:55 merged_output 目录权限: 777
+[ColorFeatureEnhance] 2025-07-23 18:17:55 简化权限设置成功
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:17:55 === 最终状态检查 ===
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:17:55 system_baseline 目录内容:
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:17:55   total 26
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:17:55   drwxrwxrwx 2 root    ext_data_rw  3452 2025-07-23 18:17 .
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:17:55   drwxrwxrwx 5 u0_a542 ext_data_rw  3452 2025-07-23 18:17 ..
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:17:55   -rwxrwxrwx 1 root    root         2623 2025-07-23 18:17 com.oplus.app-features.xml
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:17:55   -rwxrwxrwx 1 root    root        11492 2025-07-23 18:17 com.oplus.oplus-feature.xml
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:17:55   -rwxrwxrwx 1 root    root           20 2025-07-23 18:17 last_copy.txt
+[ColorFeatureEnhance] 2025-07-23 18:17:55 === ColorFeatureEnhance Service v2.0 执行完成 ===
+[ColorFeatureEnhance] 2025-07-23 18:17:55 Service脚本成功完成
+[ColorFeatureEnhance] 1970-03-24 18:43:21 === 配置管理模块启动（post-fs-data阶段）===
+[ColorFeatureEnhance-DEBUG] 1970-03-24 18:43:21 MODDIR: /data/adb/modules/ColorOSFeaturesEnhance
+[ColorFeatureEnhance-DEBUG] 1970-03-24 18:43:21 SYSTEM_CONFIG_DIR: /my_product/etc/extension
+[ColorFeatureEnhance-DEBUG] 1970-03-24 18:43:21 MODULE_CONFIG_DIR: /data/adb/cos_feat_e/my_product/etc/extension
+[ColorFeatureEnhance-DEBUG] 1970-03-24 18:43:21 MODULE_ANYMOUNT_DIR: /data/adb/cos_feat_e/anymount/my_product/etc/extension
+[ColorFeatureEnhance-DEBUG] 1970-03-24 18:43:21 MODULE_TEMP_DIR: /data/adb/cos_feat_e/temp_configs
+[ColorFeatureEnhance-DEBUG] 1970-03-24 18:43:21 开始复制系统配置到临时目录
+[ColorFeatureEnhance-DEBUG] 1970-03-24 18:43:21 源文件存在: /my_product/etc/extension/com.oplus.app-features.xml
+[ColorFeatureEnhance-DEBUG] 1970-03-24 18:43:21 源文件大小: 2623
+[ColorFeatureEnhance-DEBUG] 1970-03-24 18:43:21 cp命令返回值: 0
+[ColorFeatureEnhance] 1970-03-24 18:43:21 复制系统配置到临时目录: com.oplus.app-features.xml
+[ColorFeatureEnhance-DEBUG] 1970-03-24 18:43:21 目标文件大小: 2623
+[ColorFeatureEnhance-DEBUG] 1970-03-24 18:43:21 源文件存在: /my_product/etc/extension/com.oplus.oplus-feature.xml
+[ColorFeatureEnhance-DEBUG] 1970-03-24 18:43:21 源文件大小: 11492
+[ColorFeatureEnhance-DEBUG] 1970-03-24 18:43:21 cp命令返回值: 0
+[ColorFeatureEnhance] 1970-03-24 18:43:21 复制系统配置到临时目录: com.oplus.oplus-feature.xml
+[ColorFeatureEnhance-DEBUG] 1970-03-24 18:43:21 目标文件大小: 11492
+[ColorFeatureEnhance-DEBUG] 1970-03-24 18:43:21 临时目录最终状态:
+[ColorFeatureEnhance-DEBUG] 1970-03-24 18:43:21   total 31
+[ColorFeatureEnhance-DEBUG] 1970-03-24 18:43:21   drwxrwxrwx    2 root     root          3452 Jul 23  2025 .
+[ColorFeatureEnhance-DEBUG] 1970-03-24 18:43:21   drwxr-xr-x    5 root     root          3452 Mar 24 18:38 ..
+[ColorFeatureEnhance-DEBUG] 1970-03-24 18:43:21   -rwxrwxrwx    1 root     root          2623 Mar 24 18:43 com.oplus.app-features.xml
+[ColorFeatureEnhance-DEBUG] 1970-03-24 18:43:21   -rwxrwxrwx    1 root     root         11492 Mar 24 18:43 com.oplus.oplus-feature.xml
+[ColorFeatureEnhance-DEBUG] 1970-03-24 18:43:21   -rwxrwxrwx    1 root     root            20 Mar 24 18:43 last_copy.txt
+[ColorFeatureEnhance-DEBUG] 1970-03-24 18:43:21   -rwxrwxrwx    1 root     root            55 Jul 23  2025 service_status.txt
+[ColorFeatureEnhance] 1970-03-24 18:43:21 系统配置复制到临时目录完成，成功复制 2 个文件
+[ColorFeatureEnhance] 1970-03-24 18:43:21 开始挂载配置文件
+[ColorFeatureEnhance] 1970-03-24 18:43:21 === post-fs-data阶段完成 ===
+[ColorFeatureEnhance] 2025-07-23 18:18:42 === ColorFeatureEnhance Service v2.1 启动 ===
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:18:42 模块目录: /data/adb/modules/ColorOSFeaturesEnhance
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:18:42 临时配置源: /data/adb/cos_feat_e/temp_configs
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:18:42 应用配置目录: /data/media/0/Android/data/com.itosfish.colorfeatureenhance/files/configs
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:18:42 功能: 临时目录 -> 应用存储
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:18:42 === 主流程开始 ===
+[ColorFeatureEnhance] 2025-07-23 18:18:42 等待系统启动完成...
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:18:54 系统基本启动完成
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:18:54 用户已解锁
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:18:54 等待文件系统稳定...
+[ColorFeatureEnhance] 2025-07-23 18:18:59 系统准备就绪
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:18:59 === 环境检查 ===
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:18:59 当前用户: uid=0(root) gid=0(root) context=u:r:su:s0
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:18:59 SELinux状态: Enforcing
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:18:59 /data/media/0 权限: drwxrws---   30 media_rw media_rw      8192 Jul 23 10:30 /data/media/0
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:18:59 /data/media/0/Android 权限: 无法访问
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:18:59 /data/media/0/Android/data 权限: 无法访问
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:18:59 临时配置源检查:
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:18:59   /data/adb/cos_feat_e/temp_configs 存在: 是
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:18:59   com.oplus.app-features.xml 存在: 是
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:18:59   com.oplus.oplus-feature.xml 存在: 是
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:18:59   last_copy.txt 存在: 是
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:18:59 临时目录内容:
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:18:59     total 31
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:18:59     drwxrwxrwx    2 root     root          3452 Jul 23 18:17 .
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:18:59     drwxr-xr-x    5 root     root          3452 Mar 24  1970 ..
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:18:59     -rwxrwxrwx    1 root     root          2623 Mar 24  1970 com.oplus.app-features.xml
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:18:59     -rwxrwxrwx    1 root     root         11492 Mar 24  1970 com.oplus.oplus-feature.xml
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:18:59     -rwxrwxrwx    1 root     root            20 Mar 24  1970 last_copy.txt
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:18:59     -rwxrwxrwx    1 root     root            56 Jul 23 18:18 service_status.txt
+[ColorFeatureEnhance] 2025-07-23 18:18:59 执行优化的目录初始化...
+[ColorFeatureEnhance] 2025-07-23 18:18:59 优化的目录初始化：重建system_baseline，调整其他目录权限...
+[ColorFeatureEnhance-DEBUG] 2025-07-23 18:18:59 强制重新创建目录: /data/media/0/Android/data/com.itosfish.colorfeatureenhance/files (权限: 777)
+[ColorFeatureEnhance-ERROR] 2025-07-23 18:18:59 目录重新创建失败: /data/media/0/Android/data/com.itosfish.colorfeatureenhance/files
+[ColorFeatureEnhance-ERROR] 2025-07-23 18:18:59 优化目录初始化失败
+[ColorFeatureEnhance-ERROR] 2025-07-23 18:18:59 Service脚本执行失败，退出码: 1

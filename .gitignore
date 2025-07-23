@@ -6,3 +6,5 @@ build
 .cxx
 /out
 /.kotlin
+.promptx/
+/.promptx

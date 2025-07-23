@@ -136,7 +136,7 @@ object ConfigUtils {
     }
 
     /**
-     * 确保配置目录有正确的权限
+     * 确保配置目录有正确的权限（简化版：统一使用777权限）
      */
     private fun ensureProperPermissions(): Boolean {
         return try {
@@ -148,54 +148,42 @@ object ConfigUtils {
 
             // 检查是否可写
             if (!configDir.canWrite()) {
-                CLog.w(TAG, "配置目录无写权限，尝试修复")
+                CLog.w(TAG, "配置目录无写权限，使用简化权限修复（777权限）")
 
                 val fixCmd = """
-                    # 获取应用数据目录的默认权限
-                    APP_DATA_DIR="$baseDir"
                     CONFIG_DIR="$configsDir"
 
-                    # 检查应用数据目录是否存在
-                    if [ ! -d "${'$'}APP_DATA_DIR" ]; then
-                        echo "应用数据目录不存在: ${'$'}APP_DATA_DIR"
+                    # 检查配置目录是否存在
+                    if [ ! -d "${'$'}CONFIG_DIR" ]; then
+                        echo "配置目录不存在: ${'$'}CONFIG_DIR"
                         exit 1
                     fi
 
-                    # 获取默认权限
-                    APP_UID_GID=${'$'}(stat -c %u:%g "${'$'}APP_DATA_DIR" 2>/dev/null)
-                    FILES_PERM=${'$'}(stat -c %a "${'$'}APP_DATA_DIR/files" 2>/dev/null || echo "771")
+                    echo "设置配置目录及所有子目录和文件为777权限..."
 
-                    if [ -n "${'$'}APP_UID_GID" ]; then
-                        echo "检测到应用权限: UID:GID=${'$'}APP_UID_GID, 目录权限=${'$'}FILES_PERM"
+                    # 统一设置777权限
+                    chmod 777 "${'$'}CONFIG_DIR" 2>/dev/null
+                    find "${'$'}CONFIG_DIR" -type d -exec chmod 777 {} \; 2>/dev/null
+                    find "${'$'}CONFIG_DIR" -type f -exec chmod 777 {} \; 2>/dev/null
 
-                        # 恢复权限
-                        chown -R "${'$'}APP_UID_GID" "${'$'}CONFIG_DIR" 2>/dev/null
-                        find "${'$'}CONFIG_DIR" -type d -exec chmod "${'$'}FILES_PERM" {} \; 2>/dev/null
-                        find "${'$'}CONFIG_DIR" -type f -exec chmod 660 {} \; 2>/dev/null
-
-                        # 验证结果
-                        FINAL_UID_GID=${'$'}(stat -c %u:%g "${'$'}CONFIG_DIR" 2>/dev/null)
-                        FINAL_PERM=${'$'}(stat -c %a "${'$'}CONFIG_DIR" 2>/dev/null)
-                        echo "权限修复完成: UID:GID=${'$'}FINAL_UID_GID, 权限=${'$'}FINAL_PERM"
-                    else
-                        echo "无法获取应用默认权限"
-                        exit 1
-                    fi
+                    # 验证结果
+                    FINAL_PERM=${'$'}(stat -c %a "${'$'}CONFIG_DIR" 2>/dev/null)
+                    echo "简化权限修复完成: 权限=${'$'}FINAL_PERM"
                 """.trimIndent()
 
                 val result = CSU.runWithSu(fixCmd)
-                CLog.i(TAG, "权限修复结果: ${result.output}")
+                CLog.i(TAG, "简化权限修复结果: ${result.output}")
 
                 // 重新检查是否可写
                 val canWriteAfterFix = configDir.canWrite()
-                CLog.i(TAG, "权限修复后可写状态: $canWriteAfterFix")
+                CLog.i(TAG, "简化权限修复后可写状态: $canWriteAfterFix")
                 return canWriteAfterFix
             } else {
                 CLog.d(TAG, "配置目录权限正常")
                 return true
             }
         } catch (e: Exception) {
-            CLog.e(TAG, "权限检查失败", e)
+            CLog.e(TAG, "简化权限检查失败", e)
             false
         }
     }
@@ -317,6 +305,14 @@ object ConfigUtils {
             }
         }
     */
+
+    /**
+     * 检查模块是否已安装（基于模块版本）
+     * 注意：新的自动更新策略不再使用此方法，而是基于应用版本变化
+     */
+    fun shouldInstallModule(): Boolean {
+        return moduleVersion < LATEST_MODULE_VERSION
+    }
 
     /**
      * 获取模块版本信息

@@ -114,7 +114,7 @@ fun ColorOSTopAppBar(
                     DropdownMenuItem(
                         text = {
                             Text(
-                                text = stringResource(R.string.update_modules),
+                                text = "更新模块",
                                 style = MaterialTheme.typography.bodyLarge
                             )
                         },
