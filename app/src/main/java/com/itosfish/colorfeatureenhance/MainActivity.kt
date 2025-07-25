@@ -2,7 +2,6 @@ package com.itosfish.colorfeatureenhance
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -12,6 +11,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.lifecycle.lifecycleScope
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.itosfish.colorfeatureenhance.config.ConfigMergeManager
 import com.itosfish.colorfeatureenhance.data.remote.RemoteConfigManager
@@ -26,7 +26,6 @@ import com.itosfish.colorfeatureenhance.utils.CSU
 import com.itosfish.colorfeatureenhance.utils.ConfigUtils
 import com.itosfish.colorfeatureenhance.utils.DisclaimerManager
 import com.itosfish.colorfeatureenhance.utils.ModuleAutoUpdater
-import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -135,7 +134,10 @@ class MainActivity : ComponentActivity() {
             // 异步执行配置合并和云端配置更新
             CoroutineScope(Dispatchers.Main).launch {
                 try {
-                    // 1. 先执行配置合并
+                    // 1. 复制系统原本配置
+                    ConfigUtils.copySystemConfig()
+
+                    // 2. 执行配置合并
                     val mergeSuccess = ConfigMergeManager.performConfigMerge()
                     if (mergeSuccess) {
                         CLog.i("MainActivity", "配置合并完成")
@@ -143,7 +145,7 @@ class MainActivity : ComponentActivity() {
                         CLog.w("MainActivity", "配置合并失败")
                     }
 
-                    // 2. 异步检查云端配置更新（不阻塞主流程）
+                    // 3. 异步检查云端配置更新（不阻塞主流程）
                     launch(Dispatchers.IO) {
                         try {
                             val remoteConfigManager =

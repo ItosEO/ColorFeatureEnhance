@@ -1,5 +1,6 @@
 package com.itosfish.colorfeatureenhance.utils
 
+import android.system.Os
 import android.util.Log
 import com.itosfish.colorfeatureenhance.MainActivity.Companion.app
 import java.io.File
@@ -10,7 +11,7 @@ import java.io.FileOutputStream
  * 负责配置目录初始化、模块安装等基础功能
  */
 object ConfigUtils {
-    const val LATEST_MODULE_VERSION = 19
+    const val LATEST_MODULE_VERSION = 20
 
     private const val TAG = "ConfigUtils"
 
@@ -136,7 +137,7 @@ object ConfigUtils {
     }
 
     /**
-     * 确保配置目录有正确的权限（简化版：统一使用777权限）
+     * 确保配置目录有正确的权限（简化版：统一使用660权限）
      */
     private fun ensureProperPermissions(): Boolean {
         return try {
@@ -148,7 +149,7 @@ object ConfigUtils {
 
             // 检查是否可写
             if (!configDir.canWrite()) {
-                CLog.w(TAG, "配置目录无写权限，使用简化权限修复（777权限）")
+                CLog.w(TAG, "配置目录无写权限，使用简化权限修复（660权限）")
 
                 val fixCmd = """
                     CONFIG_DIR="$configsDir"
@@ -159,12 +160,12 @@ object ConfigUtils {
                         exit 1
                     fi
 
-                    echo "设置配置目录及所有子目录和文件为777权限..."
+                    echo "设置配置目录及所有子目录和文件为660权限..."
 
-                    # 统一设置777权限
-                    chmod 777 "${'$'}CONFIG_DIR" 2>/dev/null
-                    find "${'$'}CONFIG_DIR" -type d -exec chmod 777 {} \; 2>/dev/null
-                    find "${'$'}CONFIG_DIR" -type f -exec chmod 777 {} \; 2>/dev/null
+                    # 统一设置660权限
+                    chmod 660 "${'$'}CONFIG_DIR" 2>/dev/null
+                    find "${'$'}CONFIG_DIR" -type d -exec chmod 660 {} \; 2>/dev/null
+                    find "${'$'}CONFIG_DIR" -type f -exec chmod 660 {} \; 2>/dev/null
 
                     # 验证结果
                     FINAL_PERM=${'$'}(stat -c %a "${'$'}CONFIG_DIR" 2>/dev/null)
@@ -472,6 +473,19 @@ object ConfigUtils {
 
         } catch (e: Exception) {
             CLog.e(TAG, "设置模块目录权限时发生异常", e)
+        }
+    }
+
+    fun copySystemConfig() {
+        CLog.i(TAG, "开始复制系统原本配置")
+        try {
+            CSU.runWithSu("""
+                busybox ash /data/adb/modules/ColorOSFeaturesEnhance/copy.sh ${Os.getuid()}
+            """.trimIndent()).apply {
+                CLog.d(TAG, "复制系统原本配置结果: $exitCode")
+            }
+        } catch (e: Exception) {
+            CLog.e(TAG, "复制系统原本配置时发生异常", e)
         }
     }
 }
